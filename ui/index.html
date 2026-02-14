@@ -61,6 +61,22 @@
 
                 <div class="dashboard-grid">
                     <div class="col-main">
+                        <div id="live-scanner-container" class="card scanner-container">
+                            <div class="card-header">
+                                <h3>Live Agent View: <span id="scanning-url" class="url-display">Idle</span></h3>
+                                <div class="scanner-status">
+                                    <span id="status-dot" class="dot"></span> <span id="status-label">Offline</span>
+                                </div>
+                            </div>
+                            <div class="scanner-viewport">
+                                <div id="scanner-laser" class="laser"></div>
+                                <iframe id="live-frame" src="" frameborder="0"></iframe>
+                                <div id="viewport-overlay" class="viewport-overlay">
+                                    <p>Awaiting Autonomous Session...</p>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="card panel-log">
                             <div class="card-header">
                                 <h3>Autonomous Reasoning Log</h3>
@@ -68,15 +84,6 @@
                             </div>
                             <div id="activity-log" class="log-content">
                                 <p class="dim">Awaiting input URL or image to begin autonomous inspection...</p>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Detected Issues</h3>
-                            </div>
-                            <div id="issues-list" class="list-content">
-                                <p class="dim center">No issues detected yet.</p>
                             </div>
                         </div>
                     </div>
@@ -95,6 +102,15 @@
 
                         <div class="card">
                             <div class="card-header">
+                                <h3>Detected Issues</h3>
+                            </div>
+                            <div id="issues-list" class="list-content">
+                                <p class="dim center">No issues detected yet.</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
                                 <h3>AI Fix Suggestions</h3>
                             </div>
                             <div id="suggestions-list" class="list-content">
@@ -107,6 +123,20 @@
         </div>
     </div>
 
+    <div id="preview-modal" class="modal-overlay">
+        <div class="modal-window">
+            <div class="modal-header">
+                <span id="modal-title">Inspected Site Full View</span>
+                <button id="close-modal" class="btn-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="preview-frame" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <button id="view-site-btn" class="view-btn-hidden">Expand Live View</button>
+    
     <script src="script.js"></script>
 </body>
 </html>
