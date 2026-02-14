@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspectra ReQon | Autonomous QA Intelligence</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <button class="btn-new-project" id="new-project-sidebar">+ New Project</button>
+            </div>
+            <div id="project-history" class="history-list">
+                <p class="history-empty">No recent scans</p>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-chip">User Account</div>
+            </div>
+        </aside>
+
+        <div class="main-content">
+            <nav class="navbar">
+                <div class="nav-content">
+                    <div class="logo-group">
+                        <span class="logo-text">Inspectra Re<span class="accent">Q</span>on</span>
+                        <span class="tagline">Autonomous QA AI Platform</span>
+                    </div>
+                    <div class="nav-links">
+                        <button class="btn-ghost">Documentation</button>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="container">
+                <section class="search-section">
+                    <div class="input-wrapper">
+                        <input type="text" id="url-input" placeholder="Enter URL or upload a screenshot..." value="https://skillcraftr.io">
+                        
+                        <div class="upload-group">
+                            <input type="file" id="image-upload" accept="image/*" hidden>
+                            <button type="button" id="upload-trigger" class="btn-icon" title="Upload Screenshot">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                    <circle cx="8.5" cy="8.5" r="1.5" />
+                                    <polyline points="21 15 16 10 5 21" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <button id="analyze-btn" class="btn-cta">Analyze</button>
+                    </div>
+
+                    <div id="file-preview-container" class="preview-hidden">
+                        <span id="file-name"></span>
+                        <button id="remove-file">&times;</button>
+                    </div>
+                </section>
+
+                <div class="dashboard-grid">
+                    <div class="col-main">
+                        <div class="card panel-log">
+                            <div class="card-header">
+                                <h3>Autonomous Reasoning Log</h3>
+                                <span class="status-pill" id="status-text">Ready</span>
+                            </div>
+                            <div id="activity-log" class="log-content">
+                                <p class="dim">Awaiting input URL or image to begin autonomous inspection...</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Detected Issues</h3>
+                            </div>
+                            <div id="issues-list" class="list-content">
+                                <p class="dim center">No issues detected yet.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sidebar">
+                        <div class="card score-card">
+                            <h3>Product Hygiene Score</h3>
+                            <div class="score-display">
+                                <span id="score-value">--</span>
+                                <span class="score-total">/100</span>
+                            </div>
+                            <div class="score-bar-bg">
+                                <div id="score-fill" class="score-bar-fill"></div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>AI Fix Suggestions</h3>
+                            </div>
+                            <div id="suggestions-list" class="list-content">
+                                <p class="dim center">Waiting for analysis...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
